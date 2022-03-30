@@ -72,6 +72,11 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         return CGSize(width: widthPerItem - 16, height: 190)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photo = photos[indexPath.row]
+        performSegue(withIdentifier: "detailVC", sender: photo)
+    }
+    
 }
 
 
