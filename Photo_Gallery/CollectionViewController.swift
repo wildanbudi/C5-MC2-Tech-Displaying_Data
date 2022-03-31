@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Product{
+struct ProductModel {
     var photoImage: String
     var photoTitle: String
 }
@@ -17,10 +17,10 @@ private let reuseIdentifier = "collectionCell"
 class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let photos = [
-        Product(photoImage: "pic", photoTitle: "Alone in the Field"),
-        Product(photoImage: "pic", photoTitle: "Snowboarding"),
-        Product(photoImage: "pic", photoTitle: "Meeting Room"),
-        Product(photoImage: "pic", photoTitle: "Break Time"),
+        ProductModel(photoImage: "pic", photoTitle: "Alone in the Field"),
+        ProductModel(photoImage: "pic", photoTitle: "Snowboarding"),
+        ProductModel(photoImage: "pic", photoTitle: "Meeting Room"),
+        ProductModel(photoImage: "pic", photoTitle: "Break Time"),
     ]
     
     override func viewDidLoad() {
@@ -75,6 +75,11 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photo = photos[indexPath.row]
         performSegue(withIdentifier: "detailVC", sender: photo)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextView = segue.destination as? DetailPhotoViewController
+        nextView?.initData(product: (sender as? ProductModel)!)
     }
     
 }
