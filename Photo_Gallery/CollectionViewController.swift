@@ -17,10 +17,10 @@ private let reuseIdentifier = "collectionCell"
 class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let photos = [
-        ProductModel(photoImage: "pic", photoTitle: "Alone in the Field"),
-        ProductModel(photoImage: "pic", photoTitle: "Snowboarding"),
-        ProductModel(photoImage: "pic", photoTitle: "Meeting Room"),
-        ProductModel(photoImage: "pic", photoTitle: "Break Time"),
+        ProductModel(photoImage: "pic-1", photoTitle: "Alone in the Field"),
+        ProductModel(photoImage: "pic-2", photoTitle: "Snowboarding"),
+        ProductModel(photoImage: "pic-3", photoTitle: "Meeting Room"),
+        ProductModel(photoImage: "pic-4", photoTitle: "Break Time"),
     ]
     
     override func viewDidLoad() {
@@ -52,7 +52,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CollectionViewCell)!
         let chosenPhoto = photos[indexPath.row]
-        cell.photoImage.image = UIImage(named: "\(chosenPhoto.photoImage)-\(indexPath.row + 1).jpg")
+        cell.photoImage.image = UIImage(named: chosenPhoto.photoImage)
         cell.photoTitle.text = chosenPhoto.photoTitle
         cell.backgroundColor = .systemGray6
         return cell
