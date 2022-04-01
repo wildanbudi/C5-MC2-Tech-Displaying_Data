@@ -18,9 +18,12 @@ class DetailPhotoViewController: UITableViewController {
         people.shuffle()
     }
     
+    var imageName = ""
+    
     // MARK: - Table view receive data
     func initData(product: ProductModel) {
         self.navigationItem.title = product.photoTitle
+        self.imageName = product.photoImage
     }
     
     // MARK: - Table view data source
@@ -42,7 +45,7 @@ class DetailPhotoViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeaderLabelView = UIView()
-        let sectionHeaderImage = UIImage(named: "pic-1.jpg")
+        let sectionHeaderImage = UIImage(named: imageName)
         let sectionHeaderImageView = UIImageView(image: sectionHeaderImage)
         sectionHeaderImageView.contentMode = .scaleToFill
         sectionHeaderImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 240)
