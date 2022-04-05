@@ -23,7 +23,7 @@ class DetailPhotoViewController: UITableViewController {
     // MARK: - Table view receive data
     func initData(product: ProductModel) {
         self.navigationItem.title = product.photoTitle
-        self.imageName = product.photoImage
+        self.imageName = product.photoImage ?? "default"
     }
     
     // MARK: - Table view data source

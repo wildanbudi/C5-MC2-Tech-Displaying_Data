@@ -7,21 +7,13 @@
 
 import UIKit
 
-struct ProductModel {
-    var photoImage: String
-    var photoTitle: String
-}
+
 
 private let reuseIdentifier = "collectionCell"
 
-class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
-    let photos = [
-        ProductModel(photoImage: "pic-1", photoTitle: "Alone in the Field"),
-        ProductModel(photoImage: "pic-2", photoTitle: "Snowboarding"),
-        ProductModel(photoImage: "pic-3", photoTitle: "Meeting Room"),
-        ProductModel(photoImage: "pic-4", photoTitle: "Break Time"),
-    ]
+class CollectionViewController: UICollectionViewController {
+    let product = ProductModel()
+    var photos: [ProductModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +21,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
     
     private func setUpCollectionView() {
+        photos = product.populatePhotos()
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 8
@@ -37,12 +30,24 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
             .setCollectionViewLayout(layout, animated: true)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photo = photos[indexPath.row]
+        performSegue(withIdentifier: "detailVC", sender: photo)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextView = segue.destination as? DetailPhotoViewController
+        nextView?.initData(product: (sender as? ProductModel)!)
+    }
+    
+}
+
+extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     // MARK: UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
@@ -51,7 +56,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CollectionViewCell)!
         let chosenPhoto = photos[indexPath.row]
-        cell.photoImage.image = UIImage(named: chosenPhoto.photoImage)
+        cell.photoImage.image = UIImage(named: chosenPhoto.photoImage ?? "default")
         cell.photoTitle.text = chosenPhoto.photoTitle
         cell.backgroundColor = .systemGray6
         return cell
@@ -71,18 +76,8 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         return CGSize(width: widthPerItem - 16, height: 190)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photo = photos[indexPath.row]
-        performSegue(withIdentifier: "detailVC", sender: photo)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextView = segue.destination as? DetailPhotoViewController
-        nextView?.initData(product: (sender as? ProductModel)!)
-    }
     
 }
-
 
 
 

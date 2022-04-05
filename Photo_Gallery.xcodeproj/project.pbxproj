@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4637D67727F411E8007B7303 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637D67627F411E8007B7303 /* CollectionViewCell.swift */; };
 		4637D67927F44023007B7303 /* DetailPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637D67827F44023007B7303 /* DetailPhotoViewController.swift */; };
+		466F8C4C27FC3A260025E0F1 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466F8C4B27FC3A260025E0F1 /* ProductModel.swift */; };
 		4677F4FA27EDB92000677D0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4677F4F927EDB92000677D0F /* AppDelegate.swift */; };
 		4677F4FC27EDB92000677D0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4677F4FB27EDB92000677D0F /* SceneDelegate.swift */; };
 		4677F50127EDB92000677D0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4677F4FF27EDB92000677D0F /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		4637D67627F411E8007B7303 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		4637D67827F44023007B7303 /* DetailPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoViewController.swift; sourceTree = "<group>"; };
+		466F8C4B27FC3A260025E0F1 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		4677F4F627EDB92000677D0F /* Photo_Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photo_Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4677F4F927EDB92000677D0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4677F4FB27EDB92000677D0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,17 +62,42 @@
 		4677F4F827EDB92000677D0F /* Photo_Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				46DF34FA27FC36FB00013C5B /* Model */,
+				46DF34F927FC36F600013C5B /* View */,
+				46DF34F827FC36EF00013C5B /* Controller */,
 				4677F4F927EDB92000677D0F /* AppDelegate.swift */,
 				4677F4FB27EDB92000677D0F /* SceneDelegate.swift */,
-				46DBB6F027F1AFF000D4C2A1 /* CollectionViewController.swift */,
-				4637D67627F411E8007B7303 /* CollectionViewCell.swift */,
-				4637D67827F44023007B7303 /* DetailPhotoViewController.swift */,
 				4677F4FF27EDB92000677D0F /* Main.storyboard */,
 				4677F50227EDB92400677D0F /* Assets.xcassets */,
 				4677F50427EDB92400677D0F /* LaunchScreen.storyboard */,
 				4677F50727EDB92400677D0F /* Info.plist */,
 			);
 			path = Photo_Gallery;
+			sourceTree = "<group>";
+		};
+		46DF34F827FC36EF00013C5B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46DBB6F027F1AFF000D4C2A1 /* CollectionViewController.swift */,
+				4637D67827F44023007B7303 /* DetailPhotoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		46DF34F927FC36F600013C5B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4637D67627F411E8007B7303 /* CollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		46DF34FA27FC36FB00013C5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				466F8C4B27FC3A260025E0F1 /* ProductModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46DBB6F127F1AFF000D4C2A1 /* CollectionViewController.swift in Sources */,
+				466F8C4C27FC3A260025E0F1 /* ProductModel.swift in Sources */,
 				4677F4FA27EDB92000677D0F /* AppDelegate.swift in Sources */,
 				4637D67927F44023007B7303 /* DetailPhotoViewController.swift in Sources */,
 				4637D67727F411E8007B7303 /* CollectionViewCell.swift in Sources */,
