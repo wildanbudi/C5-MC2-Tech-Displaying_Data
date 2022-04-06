@@ -11,6 +11,7 @@ import PhotosUI
 class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet weak var myPhoto: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +83,8 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate 
     }
     
     @IBAction func pressSaveButton(_ sender: Any) {
-        performSegue(withIdentifier: "backToMemoriesPage", sender: self)
+        if titleTextField.text != "" && myPhoto.image != UIImage(systemName: "photo") {
+            performSegue(withIdentifier: "backToMemoriesPage", sender: self)
+        }
     }
 }

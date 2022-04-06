@@ -48,8 +48,17 @@ class DetailPhotoViewController: UITableViewController {
         let sectionHeaderImage = imageName
         let sectionHeaderImageView = UIImageView(image: sectionHeaderImage)
         sectionHeaderImageView.contentMode = .scaleToFill
-        sectionHeaderImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 240)
+//        sectionHeaderImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 240)
         sectionHeaderLabelView.addSubview(sectionHeaderImageView)
+        
+        sectionHeaderImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            sectionHeaderImageView.leadingAnchor.constraint(equalTo: sectionHeaderLabelView.leadingAnchor , constant: 8),
+            sectionHeaderImageView.trailingAnchor.constraint(equalTo: sectionHeaderLabelView.trailingAnchor , constant: -8),
+            sectionHeaderImageView.topAnchor.constraint(equalTo: sectionHeaderLabelView.topAnchor , constant: 8),
+            sectionHeaderImageView.bottomAnchor.constraint(equalTo: sectionHeaderLabelView.bottomAnchor , constant: -8)
+           ])
+        
         return sectionHeaderLabelView
     }
     
