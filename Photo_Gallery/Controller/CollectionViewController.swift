@@ -20,6 +20,10 @@ class CollectionViewController: UICollectionViewController {
         setUpCollectionView()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
     private func setUpCollectionView() {
         photos = product.populatePhotos()
         let layout = UICollectionViewFlowLayout()
@@ -86,6 +90,7 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let lay = collectionViewLayout as! UICollectionViewFlowLayout
+
         let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
         return CGSize(width: widthPerItem - 16, height: 190)
     }
