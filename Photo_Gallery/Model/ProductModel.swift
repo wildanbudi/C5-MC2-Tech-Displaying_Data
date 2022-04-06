@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
 struct ProductModel {
-    var photoImage: String?
+    var photoImage: UIImage?
     var photoTitle: String?
     
     func populatePhotos() -> [ProductModel] {
         let photos = [
-            ProductModel(photoImage: "pic-1", photoTitle: "Alone in the Field"),
-            ProductModel(photoImage: "pic-2", photoTitle: "Snowboarding"),
-            ProductModel(photoImage: "pic-3", photoTitle: "Meeting Room"),
-            ProductModel(photoImage: "pic-4", photoTitle: "Break Time"),
+            ProductModel(photoImage: UIImage(named: "pic-1"), photoTitle: "Alone in the Field"),
+            ProductModel(photoImage: UIImage(named: "pic-2"), photoTitle: "Snowboarding"),
+            ProductModel(photoImage: UIImage(named: "pic-3"), photoTitle: "Meeting Room"),
+            ProductModel(photoImage: UIImage(named: "pic-4"), photoTitle: "Break Time"),
         ]
         return photos
     }

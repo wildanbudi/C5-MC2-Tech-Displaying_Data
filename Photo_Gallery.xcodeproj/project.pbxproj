@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B5BEC2F27FD908F00889DAF /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5BEC2E27FD908F00889DAF /* AddPhotoViewController.swift */; };
 		4637D67727F411E8007B7303 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637D67627F411E8007B7303 /* CollectionViewCell.swift */; };
 		4637D67927F44023007B7303 /* DetailPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637D67827F44023007B7303 /* DetailPhotoViewController.swift */; };
 		466F8C4C27FC3A260025E0F1 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466F8C4B27FC3A260025E0F1 /* ProductModel.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B5BEC2E27FD908F00889DAF /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		4637D67627F411E8007B7303 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		4637D67827F44023007B7303 /* DetailPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoViewController.swift; sourceTree = "<group>"; };
 		466F8C4B27FC3A260025E0F1 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				46DBB6F027F1AFF000D4C2A1 /* CollectionViewController.swift */,
 				4637D67827F44023007B7303 /* DetailPhotoViewController.swift */,
+				1B5BEC2E27FD908F00889DAF /* AddPhotoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				4677F4FA27EDB92000677D0F /* AppDelegate.swift in Sources */,
 				4637D67927F44023007B7303 /* DetailPhotoViewController.swift in Sources */,
 				4637D67727F411E8007B7303 /* CollectionViewCell.swift in Sources */,
+				1B5BEC2F27FD908F00889DAF /* AddPhotoViewController.swift in Sources */,
 				4677F4FC27EDB92000677D0F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,7 +327,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GD8VREVBA4;
+				DEVELOPMENT_TEAM = KHN5V927Z7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Photo_Gallery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -351,7 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GD8VREVBA4;
+				DEVELOPMENT_TEAM = KHN5V927Z7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Photo_Gallery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

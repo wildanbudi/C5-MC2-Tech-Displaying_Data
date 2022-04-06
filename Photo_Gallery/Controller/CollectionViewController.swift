@@ -35,11 +35,25 @@ class CollectionViewController: UICollectionViewController {
         performSegue(withIdentifier: "detailVC", sender: photo)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextView = segue.destination as? DetailPhotoViewController
-        nextView?.initData(product: (sender as? ProductModel)!)
+    @IBAction func pressAddButton(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "addPhotoVC", sender: sender)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailVC" {
+            let nextView = segue.destination as? DetailPhotoViewController
+            nextView?.initData(product: (sender as? ProductModel)!)
+        } else if segue.identifier == "addPhotoVC" {
+            let nextView = segue.destination as? AddPhotoViewController
+            nextView?.title = "Add Photo"
+        }
+    }
+    
+    @IBAction func performUnwindSegue(_ sender: UIStoryboardSegue) {
+        guard let newPhotoVC = sender.source as? AddPhotoViewController else { return }
+        photos.append(ProductModel(photoImage: newPhotoVC.myPhoto.image, photoTitle: newPhotoVC.titleTextField.text))
+        collectionView.reloadData()
+    }
 }
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
@@ -56,7 +70,7 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CollectionViewCell)!
         let chosenPhoto = photos[indexPath.row]
-        cell.photoImage.image = UIImage(named: chosenPhoto.photoImage ?? "default")
+        cell.photoImage.image = chosenPhoto.photoImage
         cell.photoTitle.text = chosenPhoto.photoTitle
         cell.backgroundColor = .systemGray6
         return cell
