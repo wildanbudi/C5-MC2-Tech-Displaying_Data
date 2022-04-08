@@ -12,11 +12,13 @@ import UIKit
 private let reuseIdentifier = "collectionCell"
 
 class CollectionViewController: UICollectionViewController {
+    let photoDAO = PhotoDAO()
     let product = ProductModel()
     var photos: [ProductModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupData()
         setUpCollectionView()
     }
     
@@ -24,8 +26,13 @@ class CollectionViewController: UICollectionViewController {
         super.viewDidLayoutSubviews()
     }
     
-    private func setUpCollectionView() {
+    private func setupData() {
         photos = product.populatePhotos()
+        let photosFromCoreData = photoDAO.fetchPhotos()
+        photos.insert(contentsOf: photosFromCoreData, at: photos.count)
+    }
+    
+    private func setUpCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 8
@@ -55,7 +62,10 @@ class CollectionViewController: UICollectionViewController {
     
     @IBAction func performUnwindSegue(_ sender: UIStoryboardSegue) {
         guard let newPhotoVC = sender.source as? AddPhotoViewController else { return }
-        photos.append(ProductModel(photoImage: newPhotoVC.myPhoto.image, photoTitle: newPhotoVC.titleTextField.text))
+        let title = newPhotoVC.titleTextField.text
+        let image = newPhotoVC.myPhoto.image
+        photos.append(ProductModel(photoImage: image, photoTitle: title))
+        photoDAO.insertPhoto(title: title, image: image?.pngData())
         collectionView.reloadData()
     }
 }
